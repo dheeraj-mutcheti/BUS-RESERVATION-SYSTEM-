@@ -1,43 +1,75 @@
-Abstract
-Booking bus tickets manually at a counter takes time and often leads to mistakes such as the same seat being given to two people. This project presents a console-based Bus Reservation System developed in C. It provides a menu-driven interface that allows an operator to register passengers, view available buses and fares, check which seats are free, book a seat, cancel a ticket with a refund, and generate a complete booking report. The system handles three buses with 20 seats each, calculates the fare automatically based on the passenger’s age (child and senior citizen concessions), and saves all data in a file so that the information is not lost when the program is closed.
-Problem Statement
-Traditional paper-based or manual bus ticket booking has several drawbacks:
-Difficulty in quickly knowing which seats are still available in a bus.
-The same seat can be given to two passengers by mistake (double booking).
-Human error in calculating the fare, especially for children and senior citizens.
-Cancelling a ticket and freeing the seat needs manual updating of records.
-Preparing a booking report at the end of the day is slow and tedious.
-Solution: This automated C application replaces manual registers with structured arrays and files, ensuring fast seat lookup, error-free fare calculation, protection against double booking, and instant reports.
-Objectives
-1. To automate passenger registration and generate a unique Passenger ID.
-2. To display the available buses, their routes and fares.
-3. To show seat availability of a bus and prevent a booked seat from being booked again.
-4. To calculate the fare automatically with a 50% concession for children (below 12 years) and 30% for senior citizens (60 years and above).
-5. To allow ticket cancellation, free the seat again and calculate the refund after a 10% cancellation charge.
-6. To generate a booking report with ticket status and total collection.
-7. To store all records permanently in a file using file handling in C.
-Software & Hardware Requirements
-Hardware Requirements
-Processor: Intel Core i3 or above
-RAM: 4 GB / 8 GB
-Storage: SSD / HDD with sufficient space for development tools
-Input Devices: Keyboard and mouse / touchpad
-Software Requirements
-Operating System: Microsoft Windows 10 / 11 (64-bit)
-Programming Language: C (ISO/IEC C99 standard)
-Libraries Used: stdio.h and string.h
-Development Environment / IDEs: Dev-C++ / Code::Blocks / Visual Studio Code with MinGW C Compiler
-Algorithm
-1. Start the program, initialize the 3 buses with all seats free, and load saved data from bus_data.dat (if the file exists).
-2. Display the Main Menu containing options 1 to 6 and 0 for Exit.
-3. Read the user’s choice.
-4. Use a switch statement to execute the corresponding function:
-Case 1 (Passenger Registration): Check if space is available. Read name, age, gender and phone. Assign the next Passenger ID, store the record and save to file.
-Case 2 (Book Seat): Read Passenger ID and check that the passenger exists. Show the buses, read the bus number, display the seats and read the seat number. If the seat is free, calculate the fare, generate a ticket number, mark the seat as booked, save to file and print the ticket; otherwise display an error.
-Case 3 (Cancel Ticket): Read the ticket number and search for it. If it exists and is active, mark it as cancelled, free the seat, calculate the refund (90% of fare) and save to file.
-Case 4 (Check Seat Availability): Read the bus number, display all 20 seats as free or booked and print the count of available seats.
-Case 5 (View Buses & Fares): Display the list of buses with route and base fare.
-Case 6 (Booking Report): Loop through all tickets and print the details with status (Booked / Cancelled), then print the total booked, total cancelled and total collection.
-Case 0 (Exit): Terminate the program loop (return 0).
-5. Repeat the menu loop until the user chooses to exit.
-6. Stop.
+Bus Reservation System
+
+A console-based Bus Reservation System developed using C programming. This project is designed to simplify basic bus ticket booking operations, passenger registration, seat management, ticket cancellation, and booking reports.
+
+The system uses a menu-driven interface that allows users to perform different reservation operations and stores records in a binary file so that data is available even after the program is closed.
+
+Features
+
+- Passenger Registration: Register passengers and generate unique Passenger IDs.
+- Seat Booking: Select a bus and seat number to book a ticket.
+- Double-Booking Prevention: Prevent booking a seat that is already occupied.
+- Automatic Fare Calculation: Calculate fares based on passenger age, including child and senior citizen discounts.
+- Ticket Cancellation: Cancel active tickets and calculate refunds.
+- Seat Availability: Display the availability of seats in each bus.
+- Booking Reports: View ticket details, booking status, and collection summaries.
+- Data Persistence: Store and retrieve passenger, bus, and ticket records using binary file handling.
+
+Technologies Used
+
+- Programming Language: C
+- Standard Libraries: "stdio.h", "string.h"
+- File Handling: Binary file operations using "fread()" and "fwrite()"
+- Development Environment: Dev-C++ / Code::Blocks / VS Code with MinGW
+
+Project Specifications
+
+Specification| Details
+Number of buses| 3
+Seats per bus| 20
+Total seats| 60
+Maximum passengers| 100
+Maximum tickets| 200
+Data storage| "bus_data.dat"
+Interface| Console-based
+
+Concepts Implemented
+
+This project applies fundamental C programming concepts, including:
+
+- Structures ("struct")
+- Arrays
+- Functions and modular programming
+- Conditional statements and loops
+- Input validation
+- Searching and record management
+- File handling
+- Basic data persistence
+
+Current Limitations
+
+- The application uses a console-based interface.
+- It supports a fixed number of buses and seats.
+- It does not include user login or authentication.
+- It does not support multiple seats in a single booking.
+- It does not include online payment integration.
+- It does not maintain separate seat availability for different journey dates.
+
+Future Enhancements
+
+- Develop a graphical user interface.
+- Integrate a database such as MySQL or SQLite.
+- Add user authentication.
+- Support multiple seats in one booking.
+- Introduce journey dates and departure schedules.
+- Implement online payment integration.
+
+Learning Outcome
+
+This project helped me understand how fundamental C programming concepts can be combined to develop a practical application. It provided hands-on experience with structures, functions, arrays, input validation, and binary file handling.
+
+---
+
+Project Type: Academic Mini Project
+Language: C
+Level: Beginner
